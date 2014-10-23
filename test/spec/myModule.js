@@ -1,4 +1,4 @@
-define(['myModule'], function (myModule) {
+/*define(['myModule'], function (myModule) {
 	
 	describe('myModule', function () {
 
@@ -6,5 +6,16 @@ define(['myModule'], function (myModule) {
             expect(myModule).to.be.an('object');
         });
 
+
+        describe('#functional tests', function () {
+
+        	it('should take a string', function () {
+
+        		expect(myModule.buildIt('Hello')).to.eq('Burt blurted loudly, Hello!');
+
+        	});
+
+        });
+
 	});
-});
+});*/
