@@ -7,12 +7,12 @@
   },
   "author": "Jon Bretman",
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "grunt": "^0.4.5",
-    "grunt-mocha": "^0.4.11",
+    "grunt": "~0.4.2",
+    "sinon": "~1.8.2",
+    "mocha": "~1.17.1",
+    "grunt-mocha": "git://github.com/jonbretman/grunt-mocha",
     "istanbul": "~0.2.4",
-    "mocha": "^1.21.5",
     "requirejs": "~2.1.11",
-    "sinon": "^1.10.3"
+    "expect.js": "~0.3.1"
   }
 }
