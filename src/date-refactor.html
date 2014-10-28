@@ -5,42 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
 		<title>Mangled date examples</title>
 		<meta name="viewport" content="width=device-width" />
-
-
-		<script>
-		function prettyDate(now,time){
-			var date = new Date(time || ""),
-				diff = ((new Date(now).getTime() - date.getTime()) / 1000),
-				day_diff = Math.floor(diff / 86400);
-
-			if (isNaN(day_diff) || day_diff < 0 || day_diff >= 31) {
-				return;
-			}
-
-			return day_diff === 0 && (
-					diff < 60 && "just now" ||
-					diff < 120 && "1 minute ago" ||
-					diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
-					diff < 7200 && "1 hour ago" ||
-					diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
-				day_diff == 1 && "Yesterday" ||
-				day_diff < 7 && day_diff + " days ago" ||
-				day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
-		}
-		window.onload = function(){
-			var links = document.querySelectorAll(".time");
-			for (var i = 0; i < links.length; i++) {
-				if (links[i].title) {
-					var date = prettyDate('2008-01-28T22:25:00Z', links[i].title);
-					if (date) {
-						links[i].innerHTML = date;
-					}
-				}
-			}
-		};
-		</script>
-
-
 	</head>
 	<body>
 
@@ -73,6 +37,27 @@
 
 		</ul>
 		
-		<!--<script src="js/script.js"></script>-->
+		<script src="../node_modules/requirejs/require.js"></script>
+		<script>
+
+			require.config({
+				baseUrl: 'js'
+
+			});
+			require(['DateRefactor'], function(DateRefactor){
+
+				var links = document.querySelectorAll(".time");
+				for (var i = 0; i < links.length; i++) {
+					if (links[i].title) {
+						var date = DateRefactor.prettyDate('2008-01-28T22:25:00Z', links[i].title);
+						if (date) {
+							links[i].innerHTML = date;
+						}
+					}
+				}
+
+			});
+			
+		</script>
 	</body>
 </html>
