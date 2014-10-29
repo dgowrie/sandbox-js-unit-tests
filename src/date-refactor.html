@@ -46,10 +46,20 @@
 			});
 			require(['DateRefactor'], function(DateRefactor){
 
+				var today = new Date();
+				console.log('today: ', today);
+
+				var now = '2008-01-28T22:25:00Z';
+				console.log('now: ', new Date(now));
+
+
+				console.log('today time format: ', today.getTime());
+				console.log('now time format:', new Date(now).getTime());
+
 				var links = document.querySelectorAll(".time");
 				for (var i = 0; i < links.length; i++) {
 					if (links[i].title) {
-						var date = DateRefactor.prettyDate('2008-01-28T22:25:00Z', links[i].title);
+						var date = DateRefactor.prettyDate(now, links[i].title);
 						if (date) {
 							links[i].innerHTML = date;
 						}
