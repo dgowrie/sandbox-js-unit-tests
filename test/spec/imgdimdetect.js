@@ -2,18 +2,32 @@ define([
   'imgdimdetect'
 ], function(test) {
   describe('image dimensions detection', function() {
-    it('you should be able to create a function that returns a module', function() {
-      var module = test.imageDimDetect('http://placehold.it/300x500');
+
+    it('should be able to pass data to and get data returned from the function', function() {
+
+      var fakeDatum = {
+        mediaTile: 'http://placehold.it/300x500',
+        mediaTileW: null,
+        mediaTileH: null
+      },
+        module = test.imageDimDetect(fakeDatum);
 
       expect(module.testIt).to.be.a('function');
       expect(module.src).to.eql('http://placehold.it/300x500');
       expect(module.testIt()).to.eql('image src path: http://placehold.it/300x500');
 
-      // module.name = 'katniss';
-      // module.greeting = 'hi';
-      // expect(module.name).to.eql('katniss');
-      // expect(module.greeting).to.eql('hi');
-      // expect(module.sayIt()).to.eql('hi, katniss');
+      test.src = 'http://placehold.it/600x400';
+      expect(test.src).to.eql('http://placehold.it/600x400');
     });
+
+    // return dimensions of the passed image asset via promise
+    describe('promise', function() {
+
+      it('should return the width and height of the image asset', function() {
+        //...
+      });
+    });
+
+
   });
 });
