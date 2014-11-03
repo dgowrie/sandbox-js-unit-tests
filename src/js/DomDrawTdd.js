@@ -1,4 +1,4 @@
-// date-refactor module
+// DomDrawTdd module
 
 define(function() {
 
@@ -7,9 +7,15 @@ define(function() {
 	(function() {
 		'use strict';
 	
-		//...
+		wwp.initializeDrawingArea = function(drawingAreaDiv) {
+
+		};
 	
 	}());
 	
+
+	return {
+		wwp: wwp
+	};
 
 });

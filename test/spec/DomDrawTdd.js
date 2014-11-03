@@ -1,4 +1,4 @@
-define(['DomDrawTdd'], function (DomDrawTdd) {
+define(['DomDrawTdd', 'jquery'], function (DomDrawTdd, $) {
 
 
     describe('DOM Drawing TDD demo', function () {
