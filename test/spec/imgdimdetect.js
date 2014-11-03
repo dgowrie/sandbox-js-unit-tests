@@ -10,7 +10,9 @@ define([
         mediaTileW: null,
         mediaTileH: null
       },
-        module = test.imageDimDetect(fakeDatum);
+        boo = {}, // need to move this and fakeDatum up in nested scope??
+
+        module = test.imageDimDetect(fakeDatum, boo);
 
       expect(module.testIt).to.be.a('function');
       expect(module.src).to.eql('http://placehold.it/300x500');
@@ -25,6 +27,9 @@ define([
 
       it('should return the width and height of the image asset', function() {
         //...
+        e
+
+
       });
     });
 

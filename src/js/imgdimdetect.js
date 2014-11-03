@@ -1,6 +1,6 @@
 define(['jquery'], function($) {
   return {
-    imageDimDetect : function(feedDatum) {
+    imageDimDetect : function(feedDatum, boo) {
 
         var src = feedDatum.mediaTile;
         var that = this;
@@ -42,9 +42,10 @@ define(['jquery'], function($) {
             }
                         
             // Push each post to data collection
-            that.addItems(thatDatum);
+            //that.addItems(thatDatum);
 
-            that.itemCounter(thatDatum.id);
+           // that.itemCounter(thatDatum.id);
+           boo.foo = 'bar';
             
         });
 
