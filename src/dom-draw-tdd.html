@@ -27,10 +27,15 @@
 				}
 
 			});
-			require(['DomDrawTdd'], function(DomDrawTdd){
+			require(['DomDrawTdd', 'jquery'], function(DomDrawTdd, $){
 
 				console.log('DOM TDD test');
 
+				// DOM ready
+				$(function() {
+
+					wwp.drawingAreaCanvas = wwp.initializeDrawingArea( ( $('#drawingArea')[0] ) );
+				});
 
 
 			});
