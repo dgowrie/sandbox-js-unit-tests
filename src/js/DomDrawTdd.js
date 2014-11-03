@@ -2,12 +2,14 @@
 
 define(function() {
 
-	function foo(bar) {
-		
-	}
-
-	return {
-		foo: foo
-	};
+	var wwp = {};
+	
+	(function() {
+		'use strict';
+	
+		//...
+	
+	}());
+	
 
 });

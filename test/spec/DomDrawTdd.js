@@ -1,4 +1,5 @@
-define(['DateRefactor'], function (DateRefactor) {
+define(['DomDrawTdd'], function (DomDrawTdd) {
+
 
     describe('DOM Drawing TDD demo', function () {
 
@@ -9,7 +10,7 @@ define(['DateRefactor'], function (DateRefactor) {
         beforeEach( function() {
             $drawingArea = $('<div style="height: 300px; width: 600px;></div>');
             $(document.body).append(drawingArea);
-            paper = wwp.initializeDrawingArea(drawingArea[0]);
+            paper = DomDrawTdd.wwp.initializeDrawingArea(drawingArea[0]);
         });
 
         // tear down
