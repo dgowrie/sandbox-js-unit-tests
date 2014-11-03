@@ -25,9 +25,9 @@ define([
     // return dimensions of the passed image asset via promise
     describe('promise', function() {
 
-      it('should return the width and height of the image asset', function() {
+      it.skip('should return the width and height of the image asset', function() {
         //...
-        e
+        
 
 
       });
