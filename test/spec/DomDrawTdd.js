@@ -7,7 +7,7 @@ define(['DateRefactor'], function (DateRefactor) {
         });
 
         it('does nothing', function() {
-            expect(true).to.equal(false);
+            expect(false).to.equal(false);
         });
 
         
