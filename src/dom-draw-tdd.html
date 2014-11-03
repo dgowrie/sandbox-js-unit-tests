@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
+		<title>DOM Testing - drawing w/ Raphael</title>
+		<meta name="viewport" content="width=device-width" />
+	</head>
+	<body>
+
+		
+		<p>Draw inside this box:</p>
+
+		<div id="drawingArea" style="heigh: 300px; width: 500px; border: solid red 2px;"> 
+		</div>
+
+
+		
+		<script src="../node_modules/requirejs/require.js"></script>
+		<script>
+
+			require.config({
+				baseUrl: 'js',
+				paths: {
+					jquery: 'lib/jquery',
+					raphael: 'lib/raphael'
+				}
+
+			});
+			require(['DomDrawTdd'], function(DomDrawTdd){
+
+				console.log('DOM TDD test');
+
+
+
+			});
+			
+		</script>
+	</body>
+</html>
