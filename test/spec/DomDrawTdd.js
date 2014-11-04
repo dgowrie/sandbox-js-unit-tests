@@ -28,6 +28,10 @@ define(['DomDrawTdd', 'jquery'], function (DomDrawTdd, $) {
             expect(false).to.equal(false);
         });
 
+        it('draws a line', function() {
+            DomDrawTdd.wwp.drawLine(10, 30, 300, 40);
+        });
+
         
     });
 
