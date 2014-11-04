@@ -10,6 +10,10 @@ define(function() {
 		wwp.initializeDrawingArea = function(drawingAreaDiv) {
 
 		};
+
+		wwp.drawLine = function( startX, startY, endX, endY ) {
+			
+		};
 	
 	}());
 	
