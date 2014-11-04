@@ -9,8 +9,8 @@ define(['DomDrawTdd', 'jquery'], function (DomDrawTdd, $) {
         // setup for test
         beforeEach( function() {
             $drawingArea = $('<div style="height: 300px; width: 600px;></div>');
-            $(document.body).append(drawingArea);
-            paper = DomDrawTdd.wwp.initializeDrawingArea(drawingArea[0]);
+            $(document.body).append($drawingArea);
+            paper = DomDrawTdd.wwp.initializeDrawingArea($drawingArea[0]);
         });
 
         // tear down
@@ -21,7 +21,7 @@ define(['DomDrawTdd', 'jquery'], function (DomDrawTdd, $) {
 
 
         it('should be an object', function () {
-            expect(DateRefactor).to.be.an('object');
+            expect(DomDrawTdd).to.be.an('object');
         });
 
         it('does nothing', function() {
