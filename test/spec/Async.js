@@ -1,7 +1,7 @@
 define(['Async', 'jquery'], function (Async, $) {
 
 
-	describe('Async', function () {
+	describe('Async with jquery Deferred Objects (promise)', function () {
 	  
 		describe("Ping", function () {
 			it("should update in 500 ms", function () {

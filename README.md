@@ -1,6 +1,6 @@
 ### JS Unit Tests Example Project
 
-This project is an example of running unit tests for JS code with coverage reports using:
+This is a collection of various unit testing demos, examples, and code related to self-directed learnings / tutorials. The project allows for running unit tests for JS code with coverage reports using:
 
 * Grunt
 * Mocha
@@ -9,8 +9,9 @@ This project is an example of running unit tests for JS code with coverage repor
 * PhantomJS
 * Istanbul
 
-Cloned from: https://github.com/jonbretman/unit-tests-example
+Initial setup cloned from: https://github.com/jonbretman/unit-tests-example
 
 More info, including setup direx: http://developers.lyst.com/javascript/testing/2014/03/03/javascript-unit-testing/
 
 To run: `grunt test`
+
