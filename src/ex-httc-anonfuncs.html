@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1" />
+		<title>Example Hard To Test Code: Anonymous Functions</title>
+		<meta name="viewport" content="width=device-width" />
+		<script type="text/javascript" src="js/lib/jquery.js"></script>
+	</head>
+	<body>
+
+		<ul id="list">
+
+
+		</ul>
+		
+		<script>
+
+				'use strict';
+
+				function render( data ) { // 1
+
+					var $list = $('#list').empty();
+					$.each( data.people, function ( index, person ) {
+						$( '<li />', {
+							text: person.fullName
+						} ).appendTo( $list );
+					});
+
+				}
+
+
+				/* assumed JSON file:
+					{ people: [{ fullName: "Douglas Crockford" }, { fullName: "Nicholas Zakas" }, { fullName: "Steve Souders" }] }
+				*/
+			
+		</script>
+	</body>
+</html>
