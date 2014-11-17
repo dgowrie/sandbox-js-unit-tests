@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Example Hard to Test Code: Mixed Concerns</title>
+	<script src="js/lib/jquery.js"></script>
+</head>
+<body>
+	<div id="numberOfPeople"></div>
+	<div id="lastPersonAdded"></div>
+
+
+
+	<!-- Mixed concerns
+		The method mixes data and presentation concerns:
+		- the add method takes its parameter and adds it to the list array, which seems appropriate
+		- but it also updates the DOM, in the same method
+		- Would be better to have a higher level method handle the DOM
+	-->
+	<script>
+		var people1 = {
+			list: [],
+			add: function (person) {
+				this.list.push(person);
+
+				$("#numberOfPeople").html(this.list.length);
+				$("#lastPersonAdded").html(person.name);
+			}
+		};
+
+		//people1.add({ name: "Brendan Eich" });
+		//people1.add({ name: "John Resig" });
+	</script>
+
+	<!-- Refactored to separate those concerns -->
+	<script>
+
+		// refactor pass 1
+		// 1. Add a render function, to handle the DOM
+		// 2. Create and call an addAndRender function...
+		// But still cumbersome. Better to use a pub/sub message for the DOM init...
+
+		var people2 = {
+			list: [],
+
+			addAndRender: function(person) { // 2
+				this.add(person);
+				this.render(person);
+			},
+
+			add: function(person) {
+				this.list.push(person);
+			},
+
+			// 1
+			render: function(person) {
+				$("#numberOfPeople").html(this.list.length);
+				$("#lastPersonAdded").html(person.name);				
+			}
+
+		};
+
+		// 2
+		people2.addAndRender({ name: "Brendan Eich" });
+		people2.addAndRender({ name: "John Resig" });		
+
+
+		// refactor pass 3
+
+		var people3 = {
+			list: [],
+
+
+			init: function () {
+				$(this).on('person.added', this.render);
+			},
+
+			add: function (person) {
+				this.list.push(person);
+				$(this).trigger('person.added');
+			},
+
+			render: function (person) {
+				var that = this; console.log(that);
+				$("#numberOfPeople").html(that.list.length);
+				$("#lastPersonAdded").html(person.name);				
+			}
+		};
+
+		// people3.init();
+		// people3.add( { name: 'Brendan Eich' } );
+		// people3.add( { name: 'John Resig' } );
+
+
+		// using bind
+		var people4 = {
+			list: [],
+
+			init: function () {
+				$(this).on('person.added', this.render.bind(this)); // bind method allow us to set the this value
+			},
+
+			add: function (person) {
+				this.list.push(person);
+				$(this).trigger('person.added', [ person ]); // this works without the 2nd arg of array...
+			},
+
+			render: function (e, person) { // this works without the event object...
+				$("#numberOfPeople").html(this.list.length); // 'this' set by bind (no need for 'var that = this;')
+				$("#lastPersonAdded").html(person.name);				
+			}
+		};
+
+		people4.init();
+		people4.add( { name: 'Brendan Eich' } );
+		people4.add( { name: 'John Resig4' } );		
+
+	</script>
+</body>
+</html>
